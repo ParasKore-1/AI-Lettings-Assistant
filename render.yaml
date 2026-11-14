@@ -1,34 +1,30 @@
-# Render blueprint: API (mock mode by default) + static web app.
+# Render blueprint: the Keyring API (mock mode by default).
+# The web app is deployed separately (Vercel: apps/web/vercel.json).
 services:
   - type: web
     name: keyring-api
-    runtime: docker
-    dockerfilePath: apps/server/Dockerfile
-    dockerContext: .
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm --filter @keyring/server build
+    startCommand: node --disable-warning=ExperimentalWarning apps/server/dist/index.js
     healthCheckPath: /health
     envVars:
+      - key: NODE_VERSION
+        value: 22.17.0
+      - key: NODE_ENV
+        value: production
       - key: WEB_ORIGIN
-        value: https://keyring-web.onrender.com # set to your web URL(s), comma-separated
+        value: '*' # public demo API without cookies; tighten to the web URL(s) if you like
       - key: ENABLE_DEBUG
         value: 'true' # keeps the "Simulate on next reply" demo menu working
       - key: SEED_ON_EMPTY
         value: 'true'
       - key: RATE_LIMIT_PER_MINUTE
         value: '20'
+      - key: DATABASE_PATH
+        value: ./data/keyring.sqlite
       - key: ANTHROPIC_API_KEY
         sync: false # optional: add in the dashboard to enable the real model
-    # Free instances have an ephemeral disk: the SQLite file resets on redeploy,
-    # and the server re-seeds demo data. Add a disk mounted at /data to persist.
-
-  - type: web
-    name: keyring-web
-    runtime: static
-    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm --filter @keyring/web build
-    staticPublishPath: apps/web/dist
-    envVars:
-      - key: VITE_API_URL
-        value: https://keyring-api.onrender.com
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    # Free instances have an ephemeral disk: SQLite resets on redeploy/restart and
+    # the server re-seeds demo data. A Docker alternative is in apps/server/Dockerfile.
