@@ -8,7 +8,9 @@ It runs free out of the box against a built-in **mock streaming server**. Set `A
 
 ![Keyring streaming a reply with a property card and viewing slots](docs/demo.gif)
 
-**Live demo:** _web_ `https://<your-web-host>` · _API_ `https://<your-api-host>/health` (see [Deploy](#deploy)) · **Playground:** `/playground`
+**Live demo:** https://ai-lettings-assistant.vercel.app · **API:** https://keyring-api.onrender.com/health · **Playground:** https://ai-lettings-assistant.vercel.app/playground
+
+> The API runs on Render's free tier and sleeps when idle — the first request after a while can take ~50 s to wake it.
 
 ---
 
