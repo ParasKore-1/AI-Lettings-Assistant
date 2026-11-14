@@ -1,0 +1,16 @@
+node_modules
+dist
+coverage
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-*
+apps/server/data/
+e2e/.results/
+e2e/.report/
+playwright-report
+test-results
+.lighthouseci
+.DS_Store
+*.log

@@ -1,0 +1,280 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens. Raw values live in CSS custom properties so themes can be
+ * swapped by attribute (on <html> or on any subtree, e.g. the playground's
+ * side-by-side light/dark panels). Tailwind utilities read them through
+ * `@theme inline`, so components only ever use semantic names: bg-surface,
+ * text-fg-muted, border-border, ring-focus…
+ *
+ * Contrast (WCAG 2.2 AA): fg/bg ≥ 15:1, fg-muted/bg ≥ 7:1, fg-subtle/bg ≥ 4.6:1,
+ * accent/surface ≥ 4.9:1 and accent-fg/accent ≥ 4.9:1 in both themes.
+ */
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+  --kr-bg: #f7f7f5;
+  --kr-surface: #ffffff;
+  --kr-surface-2: #f0efeb;
+  --kr-surface-3: #e7e5df;
+  --kr-elevated: #ffffff;
+  --kr-border: #e2e0da;
+  --kr-border-strong: #c9c6bd;
+  --kr-fg: #1c1b19;
+  --kr-fg-muted: #4a4843;
+  --kr-fg-subtle: #6b6861;
+  --kr-accent: #0d6b62;
+  --kr-accent-hover: #0a5a52;
+  --kr-accent-fg: #ffffff;
+  --kr-accent-soft: #e2f1ee;
+  --kr-accent-soft-fg: #0a4f48;
+  --kr-brass: #a86b12;
+  --kr-user: #e9f1ef;
+  --kr-user-fg: #14211f;
+  --kr-danger: #b42318;
+  --kr-danger-soft: #fdecea;
+  --kr-warning: #8a5300;
+  --kr-warning-soft: #fdf3e1;
+  --kr-success: #17663a;
+  --kr-success-soft: #e5f4ea;
+  --kr-focus: #0d6b62;
+  --kr-code-bg: #ffffff;
+  --kr-overlay: rgb(20 19 17 / 0.45);
+  --kr-shadow: 0 1px 2px rgb(20 19 17 / 0.06), 0 4px 16px rgb(20 19 17 / 0.06);
+  --kr-shadow-lg: 0 12px 40px rgb(20 19 17 / 0.16);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --kr-bg: #121413;
+  --kr-surface: #1a1d1c;
+  --kr-surface-2: #161918;
+  --kr-surface-3: #242827;
+  --kr-elevated: #202423;
+  --kr-border: #2c3130;
+  --kr-border-strong: #3d4341;
+  --kr-fg: #ecedeb;
+  --kr-fg-muted: #b8bcb9;
+  --kr-fg-subtle: #959b98;
+  --kr-accent: #4fd1bd;
+  --kr-accent-hover: #74ddcc;
+  --kr-accent-fg: #062a25;
+  --kr-accent-soft: #15322d;
+  --kr-accent-soft-fg: #9de6d9;
+  --kr-brass: #e0a64a;
+  --kr-user: #1f2b29;
+  --kr-user-fg: #ecedeb;
+  --kr-danger: #ff8a7a;
+  --kr-danger-soft: #3a1d1a;
+  --kr-warning: #f4bd5a;
+  --kr-warning-soft: #33280f;
+  --kr-success: #6fd59a;
+  --kr-success-soft: #15301f;
+  --kr-focus: #74ddcc;
+  --kr-code-bg: #161918;
+  --kr-overlay: rgb(0 0 0 / 0.6);
+  --kr-shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 4px 16px rgb(0 0 0 / 0.25);
+  --kr-shadow-lg: 0 12px 40px rgb(0 0 0 / 0.5);
+}
+
+@theme inline {
+  --color-bg: var(--kr-bg);
+  --color-surface: var(--kr-surface);
+  --color-surface-2: var(--kr-surface-2);
+  --color-surface-3: var(--kr-surface-3);
+  --color-elevated: var(--kr-elevated);
+  --color-border: var(--kr-border);
+  --color-border-strong: var(--kr-border-strong);
+  --color-fg: var(--kr-fg);
+  --color-fg-muted: var(--kr-fg-muted);
+  --color-fg-subtle: var(--kr-fg-subtle);
+  --color-accent: var(--kr-accent);
+  --color-accent-hover: var(--kr-accent-hover);
+  --color-accent-fg: var(--kr-accent-fg);
+  --color-accent-soft: var(--kr-accent-soft);
+  --color-accent-soft-fg: var(--kr-accent-soft-fg);
+  --color-brass: var(--kr-brass);
+  --color-user: var(--kr-user);
+  --color-user-fg: var(--kr-user-fg);
+  --color-danger: var(--kr-danger);
+  --color-danger-soft: var(--kr-danger-soft);
+  --color-warning: var(--kr-warning);
+  --color-warning-soft: var(--kr-warning-soft);
+  --color-success: var(--kr-success);
+  --color-success-soft: var(--kr-success-soft);
+  --color-focus: var(--kr-focus);
+  --color-code: var(--kr-code-bg);
+  --color-overlay: var(--kr-overlay);
+  --shadow-card: var(--kr-shadow);
+  --shadow-pop: var(--kr-shadow-lg);
+}
+
+@theme {
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Cascadia Code', Menlo, Consolas, monospace;
+  --radius-bubble: 1.125rem;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-fade-in: fade-in 160ms var(--ease-out-soft) both;
+  --animate-rise-in: rise-in 220ms var(--ease-out-soft) both;
+  --animate-caret: caret 1s steps(1) infinite;
+  --animate-dot: dot 1.2s ease-in-out infinite;
+  --animate-shimmer: shimmer 1.6s linear infinite;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes rise-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes caret {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  @keyframes dot {
+    0%, 80%, 100% { transform: translateY(0); opacity: 0.45; }
+    40% { transform: translateY(-3px); opacity: 1; }
+  }
+  @keyframes shimmer {
+    from { background-position: -200% 0; }
+    to { background-position: 200% 0; }
+  }
+}
+
+/* ---------- base ---------- */
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+html[data-font-size='sm'] { font-size: 15px; }
+html[data-font-size='lg'] { font-size: 18px; }
+
+body {
+  @apply bg-bg font-sans text-fg antialiased;
+  overscroll-behavior: none;
+}
+
+#root {
+  /* --kr-vvh is set from visualViewport so the composer stays above the mobile keyboard. */
+  height: var(--kr-vvh, 100dvh);
+}
+
+:focus-visible {
+  outline: 2px solid var(--kr-focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--kr-accent) 28%, transparent);
+}
+
+.kr-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--kr-border-strong) transparent;
+}
+
+.sr-only-focusable:not(:focus) {
+  @apply sr-only;
+}
+
+/* ---------- streaming caret ----------
+   Drawn with ::after on the last inline-bearing element so it sits at the
+   end of the text without adding a line or shifting layout. */
+.kr-streaming > .kr-md > :last-child:not(ul, ol, pre, table, blockquote)::after,
+.kr-streaming > .kr-md > :is(ul, ol) > li:last-child::after,
+.kr-streaming > .kr-md > blockquote > :last-child::after,
+.kr-streaming > .kr-md:empty::after {
+  content: '';
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 0.15em;
+  vertical-align: -0.17em;
+  border-radius: 2px;
+  background: var(--kr-accent);
+  animation: var(--animate-caret);
+}
+
+/* ---------- markdown ---------- */
+.kr-md {
+  @apply text-[0.975rem] leading-[1.7] break-words;
+}
+.kr-md > * + * { margin-top: 0.85em; }
+.kr-md h1 { @apply text-xl font-semibold tracking-tight; margin-top: 1.2em; }
+.kr-md h2 { @apply text-lg font-semibold tracking-tight; margin-top: 1.2em; }
+.kr-md h3 { @apply text-base font-semibold; margin-top: 1em; }
+.kr-md > :first-child { margin-top: 0; }
+.kr-md ul { @apply list-disc pl-6; }
+.kr-md ol { @apply list-decimal pl-6; }
+.kr-md li + li { margin-top: 0.3em; }
+.kr-md li > ul, .kr-md li > ol { margin-top: 0.3em; }
+.kr-md li::marker { color: var(--kr-fg-subtle); }
+.kr-md a { @apply text-accent underline decoration-1 underline-offset-2 hover:decoration-2; }
+.kr-md strong { @apply font-semibold; }
+.kr-md hr { @apply my-5 border-border; }
+.kr-md blockquote { @apply border-l-[3px] border-brass/70 pl-4 text-fg-muted; }
+.kr-md :not(pre) > code {
+  @apply rounded-md bg-surface-3 px-1.5 py-0.5 font-mono text-[0.86em];
+}
+.kr-md table { @apply w-full border-collapse text-sm; }
+.kr-md th { @apply border-b border-border-strong px-3 py-2 text-left font-semibold; }
+.kr-md td { @apply border-b border-border px-3 py-2 align-top; }
+.kr-md tr:last-child td { @apply border-b-0; }
+.kr-md th[align='right'], .kr-md td[align='right'] { text-align: right; }
+.kr-md th[align='center'], .kr-md td[align='center'] { text-align: center; }
+
+/* Shiki dual themes: tokens carry both colours as CSS variables. */
+.kr-shiki .shiki,
+.kr-shiki .shiki span {
+  color: var(--shiki-light);
+  background-color: transparent !important;
+}
+[data-theme='dark'] .kr-shiki .shiki,
+[data-theme='dark'] .kr-shiki .shiki span {
+  color: var(--shiki-dark);
+}
+/* A light subtree inside a dark page (the playground's side-by-side panels). */
+[data-theme='dark'] [data-theme='light'] .kr-shiki .shiki,
+[data-theme='dark'] [data-theme='light'] .kr-shiki .shiki span {
+  color: var(--shiki-light);
+}
+
+.kr-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--kr-surface-3) 0%,
+    var(--kr-surface-2) 50%,
+    var(--kr-surface-3) 100%
+  );
+  background-size: 200% 100%;
+  animation: var(--animate-shimmer);
+}
+
+/* ---------- reduced motion (OS setting or in-app preference) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion='full']) *,
+  html:not([data-motion='full']) *::before,
+  html:not([data-motion='full']) *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+html[data-motion='reduce'] *,
+html[data-motion='reduce'] *::before,
+html[data-motion='reduce'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}

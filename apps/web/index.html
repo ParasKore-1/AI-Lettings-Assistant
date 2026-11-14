@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en-GB" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+    <meta name="description" content="Keyring — a fictional AI assistant for UK tenants, landlords and letting agents. Streaming chat demo." />
+    <meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121413" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Keyring — lettings assistant</title>
+    <script>
+      // Apply persisted appearance before first paint (no theme flash).
+      (function () {
+        try {
+          var s = JSON.parse(localStorage.getItem('keyring:settings') || '{}').state || {};
+          var theme = s.theme || 'system';
+          if (theme === 'system') theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          var d = document.documentElement;
+          d.dataset.theme = theme;
+          d.dataset.fontSize = s.fontSize || 'md';
+          d.dataset.motion = s.motion || 'system';
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <noscript>Keyring needs JavaScript to run.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

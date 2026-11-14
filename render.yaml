@@ -1,0 +1,34 @@
+# Render blueprint: API (mock mode by default) + static web app.
+services:
+  - type: web
+    name: keyring-api
+    runtime: docker
+    dockerfilePath: apps/server/Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: WEB_ORIGIN
+        value: https://keyring-web.onrender.com # set to your web URL(s), comma-separated
+      - key: ENABLE_DEBUG
+        value: 'true' # keeps the "Simulate on next reply" demo menu working
+      - key: SEED_ON_EMPTY
+        value: 'true'
+      - key: RATE_LIMIT_PER_MINUTE
+        value: '20'
+      - key: ANTHROPIC_API_KEY
+        sync: false # optional: add in the dashboard to enable the real model
+    # Free instances have an ephemeral disk: the SQLite file resets on redeploy,
+    # and the server re-seeds demo data. Add a disk mounted at /data to persist.
+
+  - type: web
+    name: keyring-web
+    runtime: static
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm --filter @keyring/web build
+    staticPublishPath: apps/web/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://keyring-api.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

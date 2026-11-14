@@ -1,0 +1,192 @@
+event: message_start
+data: {"type":"message_start","userMessage":{"id":"u_e09f2ec0f73f4c418212","conversationId":"c_1e3fadd14307468386f6","parentId":null,"role":"user","content":"Book a viewing for Wrenfield Road","toolResults":[],"attachments":[],"status":"complete","feedback":null,"error":null,"model":null,"createdAt":"2026-11-13T20:26:41.646Z"},"assistantMessage":{"id":"a_727c44bb3ce0488c9190","conversationId":"c_1e3fadd14307468386f6","parentId":"u_e09f2ec0f73f4c418212","role":"assistant","content":"","toolResults":[],"attachments":[],"status":"streaming","feedback":null,"error":null,"model":"keyring-mock","createdAt":"2026-11-13T20:26:41.648Z"}}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"Happy "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"to "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"set "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"that "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"up. Here's "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"the "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"property"}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":" "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"I "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"think "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"you mean:\n\n"}
+
+event: tool_result
+data: {"type":"tool_result","messageId":"a_727c44bb3ce0488c9190","result":{"kind":"property_cards","id":"tr_props_n1gil4","properties":[{"id":"prop_wrenfield_4","title":"Bright two-bed flat with balcony","address":"Flat 4, 27 Wrenfield Road","area":"Harbourside, Bristol","rentPcm":1450,"beds":2,"baths":1,"epcRating":"C","furnished":"part-furnished","availableFrom":"2026-12-01","imageUrl":null,"tags":["Balcony","Bike store","Pets considered"]}]}}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"\n\nThese are "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"the "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"next "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"available "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"**30"}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"-minute "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"viewin"}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"g "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"slo"}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"ts**. "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"Pick "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"one and "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"I'll "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"confirm "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"it with the "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"agent — grey"}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"ed-out slots "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"are already "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"taken.\n\n"}
+
+event: tool_result
+data: {"type":"tool_result","messageId":"a_727c44bb3ce0488c9190","result":{"kind":"viewing_slots","id":"tr_slots_tpe51k","propertyId":"prop_wrenfield_4","propertyTitle":"Bright two-bed flat with balcony — Flat 4, 27 Wrenfield Road","slots":[{"id":"slot_prop_wrenfield_4_1794650400000","start":"2026-11-14T10:00:00.000Z","end":"2026-11-14T10:30:00.000Z","available":true},{"id":"slot_prop_wrenfield_4_1794659400000","start":"2026-11-14T12:30:00.000Z","end":"2026-11-14T13:00:00.000Z","available":true},{"id":"slot_prop_wrenfield_4_1794823200000","start":"2026-11-16T10:00:00.000Z","end":"2026-11-16T10:30:00.000Z","available":true},{"id":"slot_prop_wrenfield_4_1794832200000","start":"2026-11-16T12:30:00.000Z","end":"2026-11-16T13:00:00.000Z","available":false},{"id":"slot_prop_wrenfield_4_1794850200000","start":"2026-11-16T17:30:00.000Z","end":"2026-11-16T18:00:00.000Z","available":true},{"id":"slot_prop_wrenfield_4_1794909600000","start":"2026-11-17T10:00:00.000Z","end":"2026-11-17T10:30:00.000Z","available":false},{"id":"slot_prop_wrenfield_4_1794918600000","start":"2026-11-17T12:30:00.000Z","end":"2026-11-17T13:00:00.000Z","available":true},{"id":"slot_prop_wrenfield_4_1794936600000","start":"2026-11-17T17:30:00.000Z","end":"2026-11-17T18:00:00.000Z","available":true},{"id":"slot_prop_wrenfield_4_1794996000000","start":"2026-11-18T10:00:00.000Z","end":"2026-11-18T10:30:00.000Z","available":true}]}}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"\n\n**Befor"}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"e "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"the vie"}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"wing**\n\n"}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"- "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"Bring photo "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"ID — you'll "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"need "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"it later for "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"**Right"}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":" to Rent** "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"che"}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"cks"}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":".\n- "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"Ask about the "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"**EPC ratin"}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"g**, "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"counc"}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"il tax "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"band and typi"}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"cal "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"bills.\n- "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"Check water press"}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"ure, "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"signs "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"of "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"damp, and mobile "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"signal "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"in each "}
+
+event: text_delta
+data: {"type":"text_delta","messageId":"a_727c44bb3ce0488c9190","delta":"room."}
+
+event: message_end
+data: {"type":"message_end","message":{"id":"a_727c44bb3ce0488c9190","conversationId":"c_1e3fadd14307468386f6","parentId":"u_e09f2ec0f73f4c418212","role":"assistant","content":"Happy to set that up. Here's the property I think you mean:\n\n\n\nThese are the next available **30-minute viewing slots**. Pick one and I'll confirm it with the agent — greyed-out slots are already taken.\n\n\n\n**Before the viewing**\n\n- Bring photo ID — you'll need it later for **Right to Rent** checks.\n- Ask about the **EPC rating**, council tax band and typical bills.\n- Check water pressure, signs of damp, and mobile signal in each room.","toolResults":[{"kind":"property_cards","id":"tr_props_n1gil4","properties":[{"id":"prop_wrenfield_4","title":"Bright two-bed flat with balcony","address":"Flat 4, 27 Wrenfield Road","area":"Harbourside, Bristol","rentPcm":1450,"beds":2,"baths":1,"epcRating":"C","furnished":"part-furnished","availableFrom":"2026-12-01","imageUrl":null,"tags":["Balcony","Bike store","Pets considered"]}]},{"kind":"viewing_slots","id":"tr_slots_tpe51k","propertyId":"prop_wrenfield_4","propertyTitle":"Bright two-bed flat with balcony — Flat 4, 27 Wrenfield Road","slots":[{"id":"slot_prop_wrenfield_4_1794650400000","start":"2026-11-14T10:00:00.000Z","end":"2026-11-14T10:30:00.000Z","available":true},{"id":"slot_prop_wrenfield_4_1794659400000","start":"2026-11-14T12:30:00.000Z","end":"2026-11-14T13:00:00.000Z","available":true},{"id":"slot_prop_wrenfield_4_1794823200000","start":"2026-11-16T10:00:00.000Z","end":"2026-11-16T10:30:00.000Z","available":true},{"id":"slot_prop_wrenfield_4_1794832200000","start":"2026-11-16T12:30:00.000Z","end":"2026-11-16T13:00:00.000Z","available":false},{"id":"slot_prop_wrenfield_4_1794850200000","start":"2026-11-16T17:30:00.000Z","end":"2026-11-16T18:00:00.000Z","available":true},{"id":"slot_prop_wrenfield_4_1794909600000","start":"2026-11-17T10:00:00.000Z","end":"2026-11-17T10:30:00.000Z","available":false},{"id":"slot_prop_wrenfield_4_1794918600000","start":"2026-11-17T12:30:00.000Z","end":"2026-11-17T13:00:00.000Z","available":true},{"id":"slot_prop_wrenfield_4_1794936600000","start":"2026-11-17T17:30:00.000Z","end":"2026-11-17T18:00:00.000Z","available":true},{"id":"slot_prop_wrenfield_4_1794996000000","start":"2026-11-18T10:00:00.000Z","end":"2026-11-18T10:30:00.000Z","available":true}]}],"attachments":[],"status":"complete","feedback":null,"error":null,"model":"keyring-mock","createdAt":"2026-11-13T20:26:41.648Z"},"conversation":{"id":"c_1e3fadd14307468386f6","title":"Booking a viewing","pinned":false,"shared":false,"createdAt":"2026-11-13T20:26:41.549Z","updatedAt":"2026-11-13T20:26:45.447Z","preview":"Happy to set that up. Here's the property I think you mean: These are the next available **30-minute viewing slots**. P…"}}
+
