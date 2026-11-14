@@ -167,7 +167,7 @@ Mock mode by default; no secrets required.
 
 Set `WEB_ORIGIN` to your web URL. Optional: `ENABLE_DEBUG=true` to keep the "Simulate" demo menu in production, `ANTHROPIC_API_KEY` for the real model, and a volume at `/data` to persist SQLite (otherwise the server re-seeds demo data on boot).
 
-**Web** (static): Vercel (`apps/web/vercel.json`, root directory `apps/web`) or Netlify (`netlify.toml`). Set `VITE_API_URL=https://<your-api-host>`.
+**Web** (static): Vercel (`vercel.json` at the repo root) or Netlify (`netlify.toml`). Set `VITE_API_URL=https://<your-api-host>`.
 
 | Server env | Default | |
 | --- | --- | --- |
