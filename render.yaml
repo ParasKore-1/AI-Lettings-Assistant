@@ -6,7 +6,8 @@ services:
     runtime: node
     plan: free
     region: frankfurt
-    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm --filter @keyring/server build
+    # npx pnpm rather than `corepack enable`: Render's Node install dir is read-only.
+    buildCommand: npx -y pnpm@9.6.0 install --frozen-lockfile && npx -y pnpm@9.6.0 --filter @keyring/server build
     startCommand: node --disable-warning=ExperimentalWarning apps/server/dist/index.js
     healthCheckPath: /health
     envVars:
