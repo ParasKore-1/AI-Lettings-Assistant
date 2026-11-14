@@ -7,7 +7,8 @@ services:
     plan: free
     region: frankfurt
     # npx pnpm rather than `corepack enable`: Render's Node install dir is read-only.
-    buildCommand: npx -y pnpm@9.6.0 install --frozen-lockfile && npx -y pnpm@9.6.0 --filter @keyring/server build
+    # NODE_ENV=development for the install only: NODE_ENV=production (below) would skip devDependencies like tsup.
+    buildCommand: NODE_ENV=development npx -y pnpm@9.6.0 install --frozen-lockfile && npx -y pnpm@9.6.0 --filter @keyring/server build
     startCommand: node --disable-warning=ExperimentalWarning apps/server/dist/index.js
     healthCheckPath: /health
     envVars:
